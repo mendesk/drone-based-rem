@@ -3,6 +3,8 @@
 The CrazyFlie 2.1 is a small indoor drone built by BitCraze. Both its hardware and software are open, it's created with development in mind and is easily
 extendable. This page documents how to assemble the drone and prepare it for this project.
 
+![CrazyFlie 2.1](images/crazyflie_2.1_small.jpg)
+
 To recap, for this project a drone is needed that:
 1. Knows its position in a room
 2. Can measure at several such positions the strength of different WiFi signals
