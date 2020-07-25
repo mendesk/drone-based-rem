@@ -8,5 +8,5 @@ is documented in the `docs` folder of this repository. The rest of this reposito
 1. Drone & material selection
 2. [Exploring the CrazyFlie](docs/exploring_crazyflie.md)
 3. [Exploring the ESP8266 WiFi module](docs/exploring_esp8266.md)
-4. [Mounting the ESP8266 module on the CrazyFlie](docs/mount_esp8266.md)
+4. [Mounting the ESP8266 module on the CrazyFlie](docs/mounting_esp8266.md)
 5. [Adjusting the CrazyFlie's firmware for ESP8266](docs/crazyflie_firmware)
