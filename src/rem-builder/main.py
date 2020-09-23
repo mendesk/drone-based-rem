@@ -36,10 +36,11 @@ PTN_END = re.compile(r'^ESP8266: -- STOP READING --$')
 # y: 0m -> 4,25m
 # z: 0m -> 2,00m
 
-start_x = 1.2
-start_y = 2.75
-start_z = 0.25
-start_yaw = 90  # In degrees
+start_x = 1.155
+start_y = 1.560
+start_z = 0.15
+start_yaw = 270  # In degrees
+
 
 sequence = [
     # Grid at 0.5m above start_z
@@ -75,6 +76,14 @@ sequence = [
 (-0.4, -0.4, 0.8, 0),
 (0, -0.4, 0.8, 0),
 """
+
+#Test sequence
+sequence = [
+    (0, 0, 0.4, 0),  # take-off
+    (0, -0.5, 0.4, 0),
+    (0, 0, 0.4, 0),
+    (0, 0, 0.15, 0),
+]
 
 
 class ConsolePrinter(Thread):

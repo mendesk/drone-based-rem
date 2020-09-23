@@ -135,3 +135,4 @@ dmypy.json
 docs/images/source_files
 src/cache
 src/output
+**/cache
