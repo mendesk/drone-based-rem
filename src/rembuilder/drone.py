@@ -151,6 +151,9 @@ class ScanningDrone:
         self.wait_for_position_estimator()
 
     def initialize(self):
+        # Enable robust TDOA
+        self._cf.param.set_value('kalman.robustTdoa', '1')
+
         # Set initial position
         logger.info("Connected, setting initial position...")
         self._set_initial_position()
