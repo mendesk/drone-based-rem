@@ -89,7 +89,7 @@ class ConsolePrinter(Thread):
         logger.info(f"Collected {len(self.ap_list)} measurements. Writing to file...")
         filename = datetime.now().strftime('%Y%m%d_%H%M%S') + "_rembuilder.out"
         with open("output/" + filename, 'w') as fh:
-            fh.write("time;x;y;z;ssid;rssi;mac;channel")
+            fh.write("time;x;y;z;ssid;rssi;mac;channel\n")
             for ap in self.ap_list:
                 fh.write(str(ap) + '\n')
         logger.info(f"Results written to {filename}")
