@@ -28,11 +28,12 @@ logger.addHandler(fhi)
 # x: 0m -> 2,20m
 # y: 0m -> 4,25m
 # z: 0m -> 2,00m
+starting_point = (1.59, 1.08, -0.20, 0)
 
-start_x = 1.155
-start_y = 1.560
-start_z = 0.15
-start_yaw = 270  # In degrees
+start_x = 1.59
+start_y = 1.08
+start_z = -0.05
+start_yaw = 0  # In degrees
 
 """sequence = [
     # Grid at 0.5m above start_z
@@ -53,32 +54,32 @@ start_yaw = 270  # In degrees
     (0, 0, 0.35, 0),
 ]
 """
-sequence = [
-    # Grid at 0.5m above start_z
-    # (relative x, relative, relative z, relative yaw, scan)
-    (0, 0, 0.4, 0, True),  # take-off
-
-    (-0.5, -0.8, 0.4, 0, True),
-    (-0.5, -0.2, 0.4, 0, True),
-    (-0.5, 0.2, 0.4, 0, True),
-    (0, 0.2, 0.4, 0, True),
-    (0.5, 0.2, 0.4, 0, True),
-    (0.5, -0.2, 0.4, 0, True),
-    (0.5, -0.8, 0.4, 0, True),
-    (0, -0.8, 0.4, 0, True),
-
-    (-0.5, -0.8, 0.8, 0, True),
-    (-0.5, -0.2, 0.8, 0, True),
-    (-0.5, 0.2, 0.8, 0, True),
-    (0, 0.2, 0.8, 0, True),
-    (0.5, 0.2, 0.8, 0, True),
-    (0.5, -0.2, 0.8, 0, True),
-    (0.5, -0.8, 0.8, 0, True),
-    (0, -0.8, 0.8, 0, True),
-
-    # (0, 0, 0.5, 0, False),  # prepare landing
-    (0, 0, 0.20, 0, False),  # prepare landing
-]
+# sequence = [
+#     # Grid at 0.5m above start_z
+#     # (relative x, relative, relative z, relative yaw, scan)
+#     (0, 0, 0.4, 0, False),  # take-off
+#
+#     (-0.5, -0.8, 0.4, 0, True),
+#     (-0.5, -0.2, 0.4, 0, True),
+#     (-0.5, 0.2, 0.4, 0, True),
+#     (0, 0.2, 0.4, 0, True),
+#     (0.5, 0.2, 0.4, 0, True),
+#     (0.5, -0.2, 0.4, 0, True),
+#     (0.5, -0.8, 0.4, 0, True),
+#     (0, -0.8, 0.4, 0, True),
+#
+#     (-0.5, -0.8, 0.8, 0, True),
+#     (-0.5, -0.2, 0.8, 0, True),
+#     (-0.5, 0.2, 0.8, 0, True),
+#     (0, 0.2, 0.8, 0, True),
+#     (0.5, 0.2, 0.8, 0, True),
+#     (0.5, -0.2, 0.8, 0, True),
+#     (0.5, -0.8, 0.8, 0, True),
+#     (0, -0.8, 0.8, 0, True),
+#
+#     # (0, 0, 0.5, 0, False),  # prepare landing
+#     (0, 0, 0.15, 0, False),  # prepare landing
+# ]
 
 # sequence = [
 #     # Grid at 0.5m above start_z
@@ -100,10 +101,11 @@ sequence = [
 #
 #Test sequence
 sequence = [
-    (0, 0, 0.4, 0, True),  # take-off
-    (0, -0.5, 0.4, 0, True),
-    (0, 0, 0.4, 0, True),
-    (0, 0, 0.15, 0, False),
+    (0, 0, 0.3, 0, True),  # take-off
+    (0, -0.3, 0.3, 0, True),
+    (0, 0, 0.3, 0, True),
+    (0.3, 0, 0.3, 0, True),
+    (0.3, 0, 0.15, 0, False),
 ]
 
 if __name__ == '__main__':
