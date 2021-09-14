@@ -133,6 +133,6 @@ dmypy.json
 
 # Custom
 docs/images/source_files
-src/cache
-src/output
 **/cache
+src/output
+src/rembuilder/cache
