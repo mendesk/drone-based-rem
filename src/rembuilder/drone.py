@@ -16,7 +16,9 @@ from .utils import ConsolePrinter
 SCAN_ON_DEMAND = "esp8266.scanOnDemand"
 SCAN_INTERVAL = "esp8266.scanInterval"
 SCAN_NOW = "esp8266.scanNow"
-RADIO_SHUTDOWN_PERIOD = 3
+RADIO_SHUTDOWN_PERIOD = 3  # Number of seconds to shutdown the radio, this should be slightly larger than time to scan
+TIME_TO_WAYPOINT = 3  # Number of seconds allowed to go from 1 waypoint to the next
+ITERATION_FREQUENCY = 0.1  # How often we should send a setpoint in seconds when moving to a waypoint
 
 logger = logging.getLogger("rembuilder")
 
@@ -148,12 +150,11 @@ class ScanningDrone:
         self._cf.param.set_value('kalman.resetEstimation', '1')
         time.sleep(0.1)
         self._cf.param.set_value('kalman.resetEstimation', '0')
+        # self._cf.param.set_value('kalman.robustTwr', '1')
+        # self._cf.param.set_value('kalman.robustTdoa', '1')
         self.wait_for_position_estimator()
 
     def initialize(self):
-        # Enable robust TDOA
-        self._cf.param.set_value('kalman.robustTdoa', '1')
-
         # Set initial position
         logger.info("Connected, setting initial position...")
         self._set_initial_position()
@@ -192,9 +193,10 @@ class ScanningDrone:
                     time.sleep(0.2)
 
     def _goto(self, x, y, z, yaw):
-        for _ in range(50):
+        iterations = int(TIME_TO_WAYPOINT / ITERATION_FREQUENCY)
+        for _ in range(iterations):
             self._cf.commander.send_position_setpoint(x, y, z, yaw)
-            time.sleep(0.1)
+            time.sleep(ITERATION_FREQUENCY)
 
     def _access_point_scan(self):
         # Wait until scan on demand is active (this happens async on connection to Crazyflie)
